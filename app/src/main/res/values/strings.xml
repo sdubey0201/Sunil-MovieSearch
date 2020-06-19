@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Assignment</string>
+    <string name="empty_list_message">"Search For Movie Title "</string>
+    <string name="movie_search_detail_image">image</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="score">Score</string>
+
+    <string name="rating">Rating</string>
+    <string name="popularity">Popularity</string>
+    <string name="director">Director:</string>
+    <string name="writer">Writer:</string>
+    <string name="actor">Actor:</string>
+    <string name="search">Search</string>
+</resources>
