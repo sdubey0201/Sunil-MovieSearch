@@ -2,6 +2,7 @@ package com.sunil.assignment.moviesearch.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -17,11 +18,16 @@ class MovieDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
+        setupActionBar()
         val mId:String = intent.getStringExtra("ID")
         viewModel = ViewModelProviders.of(this).get(MovieDetailsViewModel::class.java)
         viewModel.getMovieDetailById(mId)
         observeViewModel();
 
+    }
+    fun setupActionBar(){
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.title = getString(R.string.detail_activity_title);
     }
 
 
@@ -49,5 +55,15 @@ class MovieDetailActivity : AppCompatActivity() {
                 updateViews(it)
             }
         })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            android.R.id.home ->{
+                onBackPressed()
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
