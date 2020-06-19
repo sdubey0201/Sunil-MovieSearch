@@ -11,4 +11,6 @@
     <string name="writer">Writer:</string>
     <string name="actor">Actor:</string>
     <string name="search">Search</string>
+    <string name="search_activity_title">Search Movies</string>
+    <string name="detail_activity_title">Details</string>
 </resources>

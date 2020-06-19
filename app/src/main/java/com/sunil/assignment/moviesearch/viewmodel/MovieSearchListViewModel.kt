@@ -1,5 +1,6 @@
 package com.sunil.assignment.moviesearch.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sunil.assignment.moviesearch.model.Movie
@@ -43,11 +44,17 @@ class MovieSearchListViewModel : ViewModel() {
                         movies.value = movieListResponse.movies
                         isNetworkError.value = false
                         isNetworkCallInProgress.value = false
+                        Log.d("****ListViewModel****","onSuccess ")
+                        Log.d("****ListViewModel****","isNetworkError :${isNetworkError.value}")
+                        Log.d("****ListViewModel****","isNetworkCallInProgress :${isNetworkCallInProgress.value}")
                     }
 
                     override fun onError(e: Throwable) {
+                        Log.d("****ListViewModel****","onError :${e.printStackTrace()}")
                         isNetworkError.value = true
                         isNetworkCallInProgress.value = false
+                        Log.d("****isNetworkError****","${isNetworkError.value}")
+                        Log.d("****isNetworkCall****","${isNetworkCallInProgress.value}")
                         e.printStackTrace()
                     }
 
